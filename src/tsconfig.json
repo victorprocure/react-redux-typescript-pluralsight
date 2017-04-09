@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "jsx": "react",
+        "suppressImplicitAnyIndexErrors": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "dom", "es2017"
+        ],
+        "typeRoots": [
+            "../node_modules/@types"
+        ]
+    }
+}
