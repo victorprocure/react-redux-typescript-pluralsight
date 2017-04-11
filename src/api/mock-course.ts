@@ -56,7 +56,7 @@ const generateId = (course: ICourse) => {
 
 export class CourseApi {
     static async getAllCourses() {
-        await setTimeout(() => { }, Delay);
+        await new Promise(resolve => setTimeout(resolve, Delay));
 
         return courses;
     }
@@ -64,7 +64,7 @@ export class CourseApi {
     static async saveCourse(course: ICourse) {
         course = Object.assign({}, course); // to avoid manipulating object passed in.
 
-        await setTimeout(() => { }, Delay);
+        await new Promise(resolve => setTimeout(resolve, Delay));
         
         const minCourseTitleLength = 1;
 
@@ -83,7 +83,7 @@ export class CourseApi {
     }
 
     static async deleteCourse(courseId: string) {
-        await setTimeout(() => { }, Delay);
+        await new Promise(resolve => setTimeout(resolve, Delay));
 
         const indexOfCourseToDelete = courses.findIndex(c => c.id === courseId);
         courses.splice(indexOfCourseToDelete, 1);

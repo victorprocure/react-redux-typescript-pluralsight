@@ -16,18 +16,11 @@ module.exports = webpackMerge(commonConfig, {
     }, 
 
     plugins: [
-        new ExtractTextPlugin('[name].css'),
-        new webpack.HotModuleReplacementPlugin()
+        new ExtractTextPlugin('[name].css')
     ],
 
     devServer: {
         historyApiFallback: true,
-        stats: 'minimal',
-        setup: function(app) {
-            app.use('/assets', express.static(helpers.root('src','assets')));
-            app.get('/test', function(req, res) {
-                res.json({custom: 'response'})
-            });
-        }
+        stats: 'minimal'
     }
 });

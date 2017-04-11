@@ -22,6 +22,7 @@
     "react-router-dom": "^4.0.0",
     "redux": "^3.6.0",
     "redux-immutable-state-invariant": "^2.0.0",
+    "redux-thunk": "^2.2.0",
     "ts-node": "^3.0.2",
     "zone.js": "^0.8.5"
   },
@@ -41,6 +42,7 @@
     "@types/react-router-dom": "^4.0.3",
     "@types/redux": "^3.6.0",
     "@types/redux-immutable-state-invariant": "^1.2.30",
+    "@types/redux-thunk": "^2.1.0",
     "@types/webpack": "^2.2.14",
     "@types/zone.js": "^0.0.27",
     "autoprefixer": "^6.7.7",

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ICourse } from '../../models/course';
-import { AddCourse, IAddCourse } from './add-course';
 import { connect, MapStateToProps } from 'react-redux';
 import { bindActionCreators, ActionCreatorsMapObject, Dispatch } from 'redux';
 
-import {CourseActions} from '../../actions/course-actions';
+import { CourseList } from './course-list';
+import { CourseActions } from '../../actions/course-actions';
 
 interface ICourseState {
     course: ICourse;
@@ -21,21 +21,8 @@ class CoursesPageComponent extends React.Component<ICourseProps, ICourseState> {
         super(props, context);
 
         this.state = {
-            course: { title: "" }
+            course: null
         };
-
-        this.onClickSave = this.onClickSave.bind(this);
-        this.onTitleChange = this.onTitleChange.bind(this);
-    }
-
-    onTitleChange(event: any) {
-        const course = this.state.course;
-        course.title = event.target.value;
-        this.setState({ course: course });
-    }
-
-    onClickSave() {
-        this.props.actions.createCourse(this.state.course);
     }
 
     courseRow(course: ICourse, index: number) {
@@ -46,11 +33,7 @@ class CoursesPageComponent extends React.Component<ICourseProps, ICourseState> {
         return (
             <div>
                 <h1>Courses</h1>
-                {this.props.courses.map(this.courseRow)}
-                <AddCourse
-                    onTitleChange={this.onTitleChange}
-                    onClickSave={this.onClickSave}
-                    course={this.state.course} />
+                <CourseList courses={this.props.courses} />
             </div>
         );
     }
