@@ -2,7 +2,8 @@ import * as React from 'react';
 import { ICourse } from '../../models/course';
 import { connect, MapStateToProps } from 'react-redux';
 import { bindActionCreators, ActionCreatorsMapObject, Dispatch } from 'redux';
-
+import { withRouter } from 'react-router-dom'
+import { History } from 'history';
 import { CourseList } from './course-list';
 import { CourseActions } from '../../actions/course-actions';
 
@@ -13,6 +14,7 @@ interface ICourseState {
 interface ICourseProps {
     actions: ActionCreatorsMapObject;
     courses: ICourse[];
+    history: History
 }
 
 class CoursesPageComponent extends React.Component<ICourseProps, ICourseState> {
@@ -20,19 +22,21 @@ class CoursesPageComponent extends React.Component<ICourseProps, ICourseState> {
     constructor(props: any, context: any) {
         super(props, context);
 
-        this.state = {
-            course: null
-        };
+        this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
     }
 
-    courseRow(course: ICourse, index: number) {
-        return <div key={index}>{course.title}</div>;
+    redirectToAddCoursePage() {
+        this.props.history.push('/course')
     }
 
     render() {
         return (
             <div>
                 <h1>Courses</h1>
+                <input type="submit"
+                    value="Add Course"
+                    className="btn btn-primary"
+                    onClick={this.redirectToAddCoursePage} />
                 <CourseList courses={this.props.courses} />
             </div>
         );

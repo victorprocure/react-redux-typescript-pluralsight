@@ -9,7 +9,7 @@ interface ICourseFormProps {
     allAuthors: IAuthor[],
     onSave?: React.EventHandler<React.MouseEvent<HTMLInputElement>>,
     onChange?: React.EventHandler<React.ChangeEvent<any>>,
-    loading?: boolean,
+    saving?: boolean,
     errors: any
 }
 
@@ -48,8 +48,8 @@ export const CourseForm: React.SFC<ICourseFormProps> = (props: ICourseFormProps)
                 error={props.errors.length} />
             <input
                 type="submit"
-                disabled={props.loading}
-                value={props.loading ? 'Saving...' : 'Save'}
+                disabled={props.saving}
+                value={props.saving ? 'Saving...' : 'Save'}
                 className="btn btn-primary"
                 onClick={props.onSave} />
         </form>

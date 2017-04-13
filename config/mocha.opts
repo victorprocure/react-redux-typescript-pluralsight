@@ -1,5 +1,5 @@
 --require ts-node/register
---reporter progress
+--reporter spec
 --watch-extensions tsx,ts
 src/**/*.spec.tsx
 src/**/*.spec.ts
